@@ -1,0 +1,60 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='/_/bootstrap.min.css', rel='stylesheet')
+    link(href='/_/sticky-footer.css', rel='stylesheet')
+  title= title
+  body(style="width:100%")
+    script(src='https://code.jquery.com/jquery-3.3.0.slim.min.js',integrity='sha256-AMg3I7ya76OLPD9M+Mk7kqrA29HUn/FuGBfT/9Uf9ls=',crossorigin='anonymous')
+    main(role='main',class='container')
+      center
+        img(src='/_/ir1.png',style='max-width:90%')
+      hr
+      .row
+        .col
+          p
+            | One of the most impactful contributions you can make to an open source project is
+            | addressing the oldest issues.  Keeping a project healthy is tough, and many projects
+            | get overwhelmed and need all the help they can get.  Want to make a difference?
+            | Pick a repository and see if you can help with the oldest issues!
+      .row
+        .col
+          center
+            input#repo.form-control(placeholder='facebook/rocksdb',autocomplete='off',autocorrect='off',autocapitalize='off',spellcheck='false')
+            br
+            input#gorepo.btn.btn-primary(value='Go')
+            script.
+              $('#repo').on('keyup', function(e) {
+                if (e.keyCode == 13) {
+                  $('#gorepo').trigger('click')
+                }
+              })
+              $('#gorepo').click(function () {
+                var x = $('#repo').val()
+                if (x.indexOf('/') !== -1 && x.length > x.indexOf('/')) {
+                  window.location = '/' + x
+                }
+              })
+      hr
+      .row
+        .col
+          p
+            | Easily access or link to any repo by appending the organization and repo to our URL.
+            | i.e. <a href="https://issue.rodeo/facebook/rocksdb">https://issue.rodeo/facebook/rocksdb</a>
+    footer.footer
+      .container
+        span.text-muted
+          | Created by Fosco Marotto
+    script(src='/_/bootstrap.js')
+    script(async,src="https://www.googletagmanager.com/gtag/js?id=UA-112778063-1")
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-112778063-1');
+
