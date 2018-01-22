@@ -1,7 +1,4 @@
-
-let moment = require('moment')
 let express = require('express')
-let _ = require('lodash')
 
 const octokit = require('@octokit/rest')({
   timeout: 0,
